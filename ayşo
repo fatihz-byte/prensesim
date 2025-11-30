@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Prensesim Ayşe</title>
+<style>
+    body {
+        background: linear-gradient(135deg, #ff7aa2, #ffcad4);
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 60px;
+        font-size: 50px;
+        text-shadow: 0 0 15px white;
+    }
+
+    p {
+        font-size: 24px;
+        margin-top: -10px;
+    }
+
+    /* Kalp animasyonu */
+    .heart {
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: relative;
+        margin: 50px auto;
+        transform: rotate(-45deg);
+        animation: beat 1s infinite;
+        box-shadow: 0 0 50px rgba(255,0,0,0.6);
+    }
+
+    .heart:before,
+    .heart:after {
+        content: "";
+        width: 200px;
+        height: 200px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .heart:before {
+        top: -100px;
+        left: 0;
+    }
+    .heart:after {
+        left: 100px;
+        top: 0;
+    }
+
+    @keyframes beat {
+        0% { transform: scale(1) rotate(-45deg); }
+        50% { transform: scale(1.25) rotate(-45deg); }
+        100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    /* Parlayan küçük kalpler */
+    .floating-heart {
+        position: absolute;
+        font-size: 25px;
+        animation: floatUp 4s linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-300px); opacity: 0; }
+    }
+
+</style>
+</head>
+<body>
+
+<h1>Prensesim Ayşe 💖</h1>
+<p>Doğum Günün Kutlu Olsun... 💕</p>
+<p>Senin gibi güzel bir kalp dünyada yok...</p>
+
+<div class="heart"></div>
+
+<h2 style="margin-top:10px;">Seni Çok Seviyorum 💗</h2>
+<p>Bugün senin günün Ayşe…</p>
+<p>İyi ki varsın prensesim ✨</p>
+
+<!-- Rastgele kalp üretme -->
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "600px";
+    heart.innerHTML = "💖";
+    document.body.appendChild(heart);
+
+    setTimeout(() => { heart.remove(); }, 4000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
